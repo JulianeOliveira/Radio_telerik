@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Radio_BDModel.Avaliacao>
+
+@{
+    ViewBag.Title = "ListaVoto";
+     var programas = Radio_BDModel.RadioConnection.Model.Programas.OrderBy(p => p.Nome_programa).ToList();
+   
+    
+    
+}
+
+<h2>Lista Voto</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota)
+        </th>
+       
+        <th>
+            @Html.DisplayName("Programa")
+        </th>
+        <th></th>
+    </tr>
+
+@{
+foreach (var p in programas)
+{
+    List<Radio_BDModel.Avaliacao> notas = Model.Where(m => m.Id_programa == p.Id).ToList();
+    
+    Int32 total = 0;
+    
+    foreach (var item in notas)
+    {
+        total +=Int32.Parse(!String.IsNullOrEmpty(item.Nota) ? item.Nota : "0");
+       // notas.OrderBy(m => m.Nota == m.Nota);
+    }
+    
+    <tr>
+        <td>
+           @total
+        </td>
+        
+        <td>
+            @p.Nome_programa
+        </td>
+        
+    </tr>
+}
+}
+</table>

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Emissora";
+    var programas = Radio_BDModel.RadioConnection.Model.Programas.OrderBy(p => p.Nome_programa).ToList();
+}
+
+<h2>Emissora</h2>
+<hr />
+<a href="@Url.Action("CadastroPrograma","Home")" class="btn btn-primary">
+    <span class=" glyphicon glyphicon-floppy-save"></span>
+    Cadastrar Programa
+</a>
+
+<hr />
+<table class="table table-striped table-responsive">
+
+    <thead>
+        <tr>
+            <th>Programa</th>
+            <th>Hora</th>
+            <th>Apresentador</th>
+            <th>Descrição</th>
+            <th>Alterar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var programa   in programas)
+        {
+            <tr>
+                <td>@programa.Nome_programa</td>
+                <td>@programa.Hora</td>
+                <td>@programa.Apresentador</td>
+                <td>@programa.Descricao</td>
+                <td>@Html.ActionLink("Alterar", "AlterarPrograma", new { id = programa.Id })</td>
+                <td>@Html.ActionLink("Excluir", "ExcluirPrograma", new { id = programa.Id })</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+    var ouvintes = Radio_BDModel.RadioConnection.Model.Cadastro_usuarios.OrderBy(p => p.Nome).ToList();
+}
+
+<h2>Cadastro</h2>
+<p>Ouvinte faça seu cadastro!!!!!!</p>
+<a href="@Url.Action("CadastroOuvinte","Home")" class="btn btn-primary">
+    <span class=" glyphicon glyphicon-floppy-save"></span>
+    Cadastrar 
+</a>
+
+<hr />
+<table class="table table-striped table-responsive">
+
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Cpf</th>
+            <th>Email</th>
+            
+            <th>Alterar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ouvinte in ouvintes)
+        {
+            <tr>
+                <td>@ouvinte.Nome</td>
+                <td>@ouvinte.Cpf</td>
+                <td>@ouvinte.Email</td>
+               
+                <td>@Html.ActionLink("Alterar", "AlterarOuvinte", new { id = ouvinte.Id })</td>
+                <td>@Html.ActionLink("Excluir", "ExcluirOuvinte", new { id = ouvinte.Id })</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+

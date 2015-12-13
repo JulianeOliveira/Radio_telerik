@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDiagrams>
+  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="RadioModel" isDefault="true">
+    <DomainModelMoniker name="/RadioModel" />
+    <nestedChildShapes>
+      <classShape Id="420af8b0-fbb6-41f6-8497-c847078b2b1d" absoluteBounds="3.125, 1.5, 1.5, 2.5319775390625">
+        <DomainClassMoniker name="/RadioModel/Programa" />
+        <nestedChildShapes>
+          <elementListCompartment Id="3481d553-a323-439b-af49-9d29bad996d4" absoluteBounds="3.14, 2.01, 1.4700000000000002, 1.2108968098958333" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="144649be-2c5f-48c9-9711-5546e9fc370c" absoluteBounds="3.14, 3.2308968098958335, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="d3ab304c-1e18-4a5e-9b49-dab72c4900df" absoluteBounds="3.14, 3.4902864583333333, 1.4700000000000002, 0.44169108072916652" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="41138a63-b168-435c-82a9-c621ac8c6508" absoluteBounds="3.125, 2.5, 1.5, 2.3396761067708329">
+        <DomainClassMoniker name="/RadioModel/Pedido_musica" />
+        <nestedChildShapes>
+          <elementListCompartment Id="96bd5d98-fcea-4c1e-8a58-7565968a6b5c" absoluteBounds="3.14, 3.01, 1.4700000000000002, 1.0185953776041665" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="92faeb60-fa6d-4b2d-8c16-a3688fe8e8c0" absoluteBounds="3.14, 4.0385953776041665, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="5b5c5be8-444a-431d-a2d9-5eabd954c054" absoluteBounds="3.14, 4.2979850260416663, 1.4700000000000002, 0.44169108072916674" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="14e5cd5c-4f33-4650-923a-d9787ef5b436" absoluteBounds="5.125, 1.5, 1.5, 2.5319775390625">
+        <DomainClassMoniker name="/RadioModel/Cadastro_usuario" />
+        <nestedChildShapes>
+          <elementListCompartment Id="aeccff26-80f6-4efc-8b57-bfe719a05a18" absoluteBounds="5.1400000000000006, 2.01, 1.4700000000000002, 1.2108968098958333" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="27fda1df-db25-43d4-ac26-7285c6ef059c" absoluteBounds="5.1400000000000006, 3.2308968098958335, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="d284aa60-77b1-4462-a55e-9efff6413ee3" absoluteBounds="5.1400000000000006, 3.4902864583333333, 1.4700000000000002, 0.44169108072916663" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="04808528-6d3b-46d6-87a2-677dd007d14c" absoluteBounds="5.125, 0.5, 1.5, 2.3396761067708334">
+        <DomainClassMoniker name="/RadioModel/Avaliacao" />
+        <nestedChildShapes>
+          <elementListCompartment Id="84162ff3-3bf4-4bad-8a58-a36216decc7b" absoluteBounds="5.1400000000000006, 1.01, 1.4700000000000002, 1.0185953776041665" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="9e71d5bf-f5f0-46e9-8f25-1e53602f9591" absoluteBounds="5.14, 2.0385953776041665, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="405f848c-b3dd-41b4-9577-34d202256c39" absoluteBounds="5.14, 2.2979850260416663, 1.4700000000000002, 0.44169108072916674" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <associationConnector edgePoints="[(5.125 : 2.16983805338542); (4.625 : 2.16983805338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+        <AssociationMoniker Id="55f80a5d-54fd-441e-90eb-3afd18f9f666" />
+        <relativeChildShapes />
+        <nodes>
+          <classShapeMoniker Id="04808528-6d3b-46d6-87a2-677dd007d14c" />
+          <classShapeMoniker Id="420af8b0-fbb6-41f6-8497-c847078b2b1d" />
+        </nodes>
+      </associationConnector>
+      <associationConnector edgePoints="[(4.625 : 3.26598876953125); (5.125 : 3.26598876953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+        <AssociationMoniker Id="2e820ca9-55bf-4186-ba5c-c5efd4f5b144" />
+        <relativeChildShapes />
+        <nodes>
+          <classShapeMoniker Id="41138a63-b168-435c-82a9-c621ac8c6508" />
+          <classShapeMoniker Id="14e5cd5c-4f33-4650-923a-d9787ef5b436" />
+        </nodes>
+      </associationConnector>
+    </nestedChildShapes>
+  </entityDiagramsDiagram>
+</EntityDiagrams>

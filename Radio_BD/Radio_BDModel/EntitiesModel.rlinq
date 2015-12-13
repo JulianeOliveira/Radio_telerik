@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="RadioModel" namespace="Radio_BDModel" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="RadioModel" backend="mysql" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="Radio_BDModel" default="true">
+      <orm:class name="Programa" uniqueId="f40ac2fa-77f9-44d6-bd25-6060a073489e">
+        <orm:table name="programa" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="dd2c9ef4-609e-4335-b54f-3d754e420455" type="System.Int32">
+          <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_nome_programa" property="Nome_programa" behavior="readwrite" uniqueId="cb2b668d-50e0-4dad-8774-38ceb912c8db" type="System.String">
+          <orm:column name="nome_programa" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_hora" property="Hora" behavior="readwrite" uniqueId="3a0ac169-bb90-4bc4-96f4-47e81a899e41" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="hora" sql-type="time" nullable="true" length="0" scale="0" ado-type="Time" />
+        </orm:field>
+        <orm:field name="_apresentador" property="Apresentador" behavior="readwrite" uniqueId="81a5c53f-bc3e-4ad2-8acf-535b984f7b6f" type="System.String">
+          <orm:column name="apresentador" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_descricao" property="Descricao" behavior="readwrite" uniqueId="79f7e794-2b0e-48e9-b424-8598b1fe9263" type="System.String">
+          <orm:column name="descricao" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_avaliacaos" property="Avaliacaos" behavior="readwrite" uniqueId="84402964-f681-4154-bbba-6a5082f9380e" type="Radio_BDModel.Avaliacao">
+          <orm:collection element-class="Radio_BDModel.Avaliacao" inverse-field="_programa" order-by="" uniqueId="55f80a5d-54fd-441e-90eb-3afd18f9f666" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Pedido_musica" uniqueId="412c560c-ac18-4417-8298-89f78ff0547f">
+        <orm:table name="pedido_musica" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="dbfb80b4-1bde-41fa-aaa2-3990d68fe9e7" type="System.Int32">
+          <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_nome_musica" property="Nome_musica" behavior="readwrite" uniqueId="d1de4eb4-57d1-42b4-89ea-725b7527f403" type="System.String">
+          <orm:column name="nome_musica" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_data" property="Data" behavior="readwrite" uniqueId="bd1d0a20-56f5-4a70-8dd6-9a93983995eb" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="data" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        </orm:field>
+        <orm:field name="_id_ouvinte" property="Id_ouvinte" behavior="readwrite" uniqueId="d616e6b3-e9b0-4f14-9b41-a7c9f68c29d2" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="id_ouvinte" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_cadastro_usuario" property="Cadastro_usuario" behavior="readwrite" uniqueId="972b12d0-ae20-44a2-9911-21a493fda5fb" type="Radio_BDModel.Cadastro_usuario">
+          <orm:reference uniqueId="2e820ca9-55bf-4186-ba5c-c5efd4f5b144" association-name="Pedido_musicaHasCadastro_usuario">
+            <orm:sharedfield name="_id_ouvinte" target-class="Radio_BDModel.Cadastro_usuario" target-field="_id" />
+            <orm:constraint name="fk_musica" delete-action="dbdefaultrule" destination-table="cadastro_usuario" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="fk_musica_idx">
+          <orm:columnMapping>
+            <orm:column name="id_ouvinte" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Cadastro_usuario" uniqueId="c65ef221-85a7-4e85-87f4-cd59b0d2c164">
+        <orm:table name="cadastro_usuario" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="6293388f-9e4c-47c0-9442-a8bee10d556a" type="System.Int32">
+          <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_nome" property="Nome" behavior="readwrite" uniqueId="8d28b6df-d20c-431c-8269-26cabd06fe5d" type="System.String">
+          <orm:column name="nome" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_cpf" property="Cpf" behavior="readwrite" uniqueId="7d247c78-29e0-4d97-8091-c1bad13b0b92" type="System.String">
+          <orm:column name="cpf" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_senha" property="Senha" behavior="readwrite" uniqueId="a1a0658d-14e5-492a-8872-e406adef4966" type="System.String">
+          <orm:column name="senha" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_email" property="Email" behavior="readwrite" uniqueId="2aec0a11-cd89-4b57-b61a-c105bf291479" type="System.String">
+          <orm:column name="email" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_pedido_musicas" property="Pedido_musicas" behavior="readwrite" uniqueId="f1bcfd69-5a44-406e-a476-670f25957a75" type="Radio_BDModel.Pedido_musica">
+          <orm:collection element-class="Radio_BDModel.Pedido_musica" inverse-field="_cadastro_usuario" order-by="" uniqueId="2e820ca9-55bf-4186-ba5c-c5efd4f5b144" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Avaliacao" uniqueId="66a1e6fd-49e2-4dde-8def-5525ed00ae26">
+        <orm:table name="avaliacao" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="ded26045-0651-4bfc-a8f8-7b8058d44897" type="System.Int32">
+          <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_nota" property="Nota" behavior="readwrite" uniqueId="545bbad3-a4bb-42d4-bba0-fa0b4082ac3e" type="System.String">
+          <orm:column name="nota" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_comentario" property="Comentario" behavior="readwrite" uniqueId="f0a23cec-76c8-426d-8fad-19e365f3c0dc" type="System.String">
+          <orm:column name="comentario" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_id_programa" property="Id_programa" behavior="readwrite" uniqueId="331930fb-3787-4d9b-b7ef-19b02b41f631" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="id_programa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_programa" property="Programa" behavior="readwrite" uniqueId="e8d258c9-6ff7-4d92-bfe3-4b715b581935" type="Radio_BDModel.Programa">
+          <orm:reference uniqueId="55f80a5d-54fd-441e-90eb-3afd18f9f666" association-name="AvaliacaoHasPrograma">
+            <orm:sharedfield name="_id_programa" target-class="Radio_BDModel.Programa" target-field="_id" />
+            <orm:constraint name="fk_programa" delete-action="dbdefaultrule" destination-table="programa" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="fk_programa_idx">
+          <orm:columnMapping>
+            <orm:column name="id_programa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="programa">
+        <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nome_programa" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="hora" sql-type="time" nullable="true" length="0" scale="0" ado-type="Time" />
+        <orm:column name="apresentador" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="descricao" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+      <orm:table name="pedido_musica">
+        <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nome_musica" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="data" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        <orm:column name="id_ouvinte" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:index name="fk_musica_idx">
+          <orm:columnMapping>
+            <orm:column name="id_ouvinte" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="fk_musica" delete-action="dbdefaultrule" destination-table="cadastro_usuario">
+          <orm:column name="id_ouvinte" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="cadastro_usuario">
+        <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nome" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="cpf" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="senha" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="email" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+      <orm:table name="avaliacao">
+        <orm:column name="id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nota" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="comentario" sql-type="nvarchar" nullable="true" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="id_programa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:index name="fk_programa_idx">
+          <orm:columnMapping>
+            <orm:column name="id_programa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="fk_programa" delete-action="dbdefaultrule" destination-table="programa">
+          <orm:column name="id_programa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+    </orm:schema>
+    <orm:relational-naming-settings>
+      <orm:source-strategy>Property</orm:source-strategy>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
+    </orm:relational-naming-settings>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>RadiocorredorConnection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>server=localhost;user id=root;password=juliane;database=radiocorredor</AppConfigConnectionString>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <AddPrefix>_</AddPrefix>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+      <NavigationPropertyRules />
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings>
+      <DeploymentProject>Radio_BDModel</DeploymentProject>
+    </SchemaUpdateSettings>
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>MySql</Backend>
+        <ProviderName>MySql.Data.MySqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="f40ac2fa-77f9-44d6-bd25-6060a073489e" name="Programa" namespace="Radio_BDModel" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="dd2c9ef4-609e-4335-b54f-3d754e420455" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="81a5c53f-bc3e-4ad2-8acf-535b984f7b6f" name="Apresentador" label="Apresentador : String" kind="Persistent" fieldName="_apresentador" />
+      <Property Id="79f7e794-2b0e-48e9-b424-8598b1fe9263" name="Descricao" label="Descricao : String" kind="Persistent" fieldName="_descricao" />
+      <Property Id="3a0ac169-bb90-4bc4-96f4-47e81a899e41" name="Hora" type="DateTime" label="Hora : DateTime" nullable="true" kind="Persistent" fieldName="_hora" />
+      <Property Id="cb2b668d-50e0-4dad-8774-38ceb912c8db" name="Nome_programa" label="Nome_programa : String" kind="Persistent" fieldName="_nome_programa" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="0c139142-01ed-4331-8618-45b3ea98894b">
+          <NavigationalProperty Id="84402964-f681-4154-bbba-6a5082f9380e" name="Avaliacaos" type="IList&lt;Avaliacao&gt;" label="Avaliacaos : IList&lt;Avaliacao&gt;" nullable="true" kind="Persistent" fieldName="_avaliacaos" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="412c560c-ac18-4417-8298-89f78ff0547f" name="Pedido_musica" namespace="Radio_BDModel" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="dbfb80b4-1bde-41fa-aaa2-3990d68fe9e7" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="bd1d0a20-56f5-4a70-8dd6-9a93983995eb" name="Data" type="DateTime" label="Data : DateTime" nullable="true" kind="Persistent" fieldName="_data" />
+      <Property Id="d1de4eb4-57d1-42b4-89ea-725b7527f403" name="Nome_musica" label="Nome_musica : String" kind="Persistent" fieldName="_nome_musica" />
+      <Property Id="d616e6b3-e9b0-4f14-9b41-a7c9f68c29d2" name="Id_ouvinte" type="Int32" label="Id_ouvinte : Int32" nullable="true" kind="Persistent" fieldName="_id_ouvinte" />
+      <AssociationTargets>
+        <Association Id="2e820ca9-55bf-4186-ba5c-c5efd4f5b144" SourceMultiplicity="ZeroOne" name="Pedido_musicaHasCadastro_usuario">
+          <DomainClassMoniker name="/RadioModel/Cadastro_usuario" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="a8efa793-10b3-47c7-af83-e054ff469080">
+              <NavigationalPropertyMoniker name="/RadioModel/Cadastro_usuario/Pedido_musicas" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="60f8625f-40d3-4e8a-b1e2-c2beb8a9158f">
+              <NavigationalPropertyMoniker name="/RadioModel/Pedido_musica/Cadastro_usuario" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="559cae82-e87b-41a5-9d1f-394d203acb4b">
+          <NavigationalProperty Id="972b12d0-ae20-44a2-9911-21a493fda5fb" name="Cadastro_usuario" type="Cadastro_usuario" label="Cadastro_usuario : Cadastro_usuario" nullable="true" kind="Persistent" fieldName="_cadastro_usuario" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="c65ef221-85a7-4e85-87f4-cd59b0d2c164" name="Cadastro_usuario" namespace="Radio_BDModel" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="6293388f-9e4c-47c0-9442-a8bee10d556a" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="7d247c78-29e0-4d97-8091-c1bad13b0b92" name="Cpf" label="Cpf : String" kind="Persistent" fieldName="_cpf" />
+      <Property Id="2aec0a11-cd89-4b57-b61a-c105bf291479" name="Email" label="Email : String" kind="Persistent" fieldName="_email" />
+      <Property Id="8d28b6df-d20c-431c-8269-26cabd06fe5d" name="Nome" label="Nome : String" kind="Persistent" fieldName="_nome" />
+      <Property Id="a1a0658d-14e5-492a-8872-e406adef4966" name="Senha" label="Senha : String" kind="Persistent" fieldName="_senha" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="2cd3ffea-50c4-4394-887e-97706b9f8a17">
+          <NavigationalProperty Id="f1bcfd69-5a44-406e-a476-670f25957a75" name="Pedido_musicas" type="IList&lt;Pedido_musica&gt;" label="Pedido_musicas : IList&lt;Pedido_musica&gt;" nullable="true" kind="Persistent" fieldName="_pedido_musicas" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="66a1e6fd-49e2-4dde-8def-5525ed00ae26" name="Avaliacao" namespace="Radio_BDModel" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="ded26045-0651-4bfc-a8f8-7b8058d44897" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="f0a23cec-76c8-426d-8fad-19e365f3c0dc" name="Comentario" label="Comentario : String" kind="Persistent" fieldName="_comentario" />
+      <Property Id="331930fb-3787-4d9b-b7ef-19b02b41f631" name="Id_programa" type="Int32" label="Id_programa : Int32" nullable="true" kind="Persistent" fieldName="_id_programa" />
+      <Property Id="545bbad3-a4bb-42d4-bba0-fa0b4082ac3e" name="Nota" label="Nota : String" kind="Persistent" fieldName="_nota" />
+      <AssociationTargets>
+        <Association Id="55f80a5d-54fd-441e-90eb-3afd18f9f666" SourceMultiplicity="ZeroOne" name="AvaliacaoHasPrograma">
+          <DomainClassMoniker name="/RadioModel/Programa" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="fc64e9ff-173f-469d-b050-d0b41eaf410c">
+              <NavigationalPropertyMoniker name="/RadioModel/Programa/Avaliacaos" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="83c17986-ceb1-421d-8a70-62932b3d3790">
+              <NavigationalPropertyMoniker name="/RadioModel/Avaliacao/Programa" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="a2dc0ac9-1dc1-41bb-a620-4e541a56f6be">
+          <NavigationalProperty Id="e8d258c9-6ff7-4d92-bfe3-4b715b581935" name="Programa" type="Programa" label="Programa : Programa" nullable="true" kind="Persistent" fieldName="_programa" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="ea3336d3-72e4-4438-9329-362d7da06c0a">
+      <domainContainer name="RadioModel" namespace="Radio_BDModel" showPropertiesCompartment="true">
+        <entitySetProperty name="Programas" namespace="Radio_BDModel" type="Programa" label="Programas : IQueryable&lt;Radio_BDModel.Programa&gt;" />
+        <entitySetProperty name="Pedido_musicas" namespace="Radio_BDModel" type="Pedido_musica" label="Pedido_musicas : IQueryable&lt;Radio_BDModel.Pedido_musica&gt;" />
+        <entitySetProperty name="Cadastro_usuarios" namespace="Radio_BDModel" type="Cadastro_usuario" label="Cadastro_usuarios : IQueryable&lt;Radio_BDModel.Cadastro_usuario&gt;" />
+        <entitySetProperty name="Avaliacaos" namespace="Radio_BDModel" type="Avaliacao" label="Avaliacaos : IQueryable&lt;Radio_BDModel.Avaliacao&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>

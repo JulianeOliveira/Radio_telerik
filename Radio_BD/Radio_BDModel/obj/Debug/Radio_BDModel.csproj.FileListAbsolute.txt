@@ -1,0 +1,9 @@
+c:\users\juliane\documents\visual studio 2013\Radio_BD\Radio_BD\Radio_BDModel\bin\Debug\Radio_BDModel.dll.config
+c:\users\juliane\documents\visual studio 2013\Radio_BD\Radio_BD\Radio_BDModel\bin\Debug\Radio_BDModel.dll
+c:\users\juliane\documents\visual studio 2013\Radio_BD\Radio_BD\Radio_BDModel\bin\Debug\Radio_BDModel.pdb
+c:\users\juliane\documents\visual studio 2013\Radio_BD\Radio_BD\Radio_BDModel\bin\Debug\MySql.Data.dll
+c:\users\juliane\documents\visual studio 2013\Radio_BD\Radio_BD\Radio_BDModel\bin\Debug\Telerik.OpenAccess.35.Extensions.dll
+c:\users\juliane\documents\visual studio 2013\Radio_BD\Radio_BD\Radio_BDModel\bin\Debug\Telerik.OpenAccess.35.Extensions.xml
+c:\users\juliane\documents\visual studio 2013\Radio_BD\Radio_BD\Radio_BDModel\obj\Debug\Radio_BDModel.csprojResolveAssemblyReference.cache
+c:\users\juliane\documents\visual studio 2013\Radio_BD\Radio_BD\Radio_BDModel\obj\Debug\Radio_BDModel.dll
+c:\users\juliane\documents\visual studio 2013\Radio_BD\Radio_BD\Radio_BDModel\obj\Debug\Radio_BDModel.pdb

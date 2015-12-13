@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "PlayList";
+
+    var musicas = Radio_BDModel.RadioConnection.Model.Pedido_musicas.OrderBy(p => p.Nome_musica).ToList();
+}
+
+<h2>PlayList</h2>
+
+<hr />
+
+
+<hr />
+<table class="table table-striped table-responsive">
+
+    <thead>
+        <tr>
+            <th>Música</th>
+            <th>Data</th>
+            
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pedido_musica in musicas)
+        {
+            <tr>
+                <td>@pedido_musica.Nome_musica</td>
+                <td>@pedido_musica.Data</td>
+              
+                <td>@Html.ActionLink("Excluir", "ExcluirMusica", new { id = pedido_musica.Id })</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+

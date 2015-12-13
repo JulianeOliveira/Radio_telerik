@@ -1,0 +1,23 @@
+﻿@model Radio_BDModel.Cadastro_usuario
+
+@{
+    ViewBag.Title = "Logar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Logar</h2>
+@using (Html.BeginForm("Login", "Autenticacao", FormMethod.Post))
+{
+    @Html.Label("Login")<br />
+    @Html.TextBoxFor(m => m.Login)<br />
+
+    @Html.Label("Senha")<br />
+    @Html.PasswordFor(m => m.Senha)<br />
+
+    <input type="submit" value=" Entrar" />
+
+    @Html.ValidationSummary()
+
+
+
+}
